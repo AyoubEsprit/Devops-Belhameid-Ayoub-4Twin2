@@ -18,39 +18,32 @@
     <name>student-management</name>
 
     <properties>
-        <java.version>23</java.version>
-
-        <sonar.projectKey>student-management</sonar.projectKey>
-        <sonar.projectName>student-management</sonar.projectName>
-        <sonar.host.url>http://127.0.0.1:9000</sonar.host.url>
-
-
-        <!--suppress UnresolvedMavenProperty -->
-        <sonar.login>${env.SONAR_TOKEN}</sonar.login>
-
-        <sonar.java.coveragePlugin>jacoco</sonar.java.coveragePlugin>
-        <sonar.junit.reportsPath>target/surefire-reports</sonar.junit.reportsPath>
-        <sonar.jacoco.reportPaths>target/jacoco.exec</sonar.jacoco.reportPaths>
+        <!-- VERSION JAVA COMPATIBLE AVEC JENKINS -->
+        <java.version>17</java.version>
     </properties>
 
     <dependencies>
 
+        <!-- Spring Web -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
 
+        <!-- Spring Data JPA -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-data-jpa</artifactId>
         </dependency>
 
+        <!-- MySQL Driver -->
         <dependency>
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <scope>runtime</scope>
         </dependency>
 
+        <!-- Lombok -->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -58,12 +51,14 @@
             <optional>true</optional>
         </dependency>
 
+        <!-- Spring Boot Test -->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
         </dependency>
 
+        <!-- Swagger -->
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -75,24 +70,24 @@
     <build>
         <plugins>
 
+            <!-- Plugin Spring Boot -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
+            <!-- Compiler Plugin (Java 17) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-compiler-plugin</artifactId>
                 <version>3.11.0</version>
                 <configuration>
-                    <source>${java.version}</source>
-                    <target>${java.version}</target>
-                    <compilerArgs>
-                        <arg>--enable-preview</arg>
-                    </compilerArgs>
+                    <source>17</source>
+                    <target>17</target>
                 </configuration>
             </plugin>
 
+            <!-- JACOCO -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -113,6 +108,7 @@
                 </executions>
             </plugin>
 
+            <!-- SonarQube Scanner -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
