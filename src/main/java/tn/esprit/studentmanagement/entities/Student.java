@@ -1,5 +1,6 @@
 package tn.esprit.studentmanagement.entities;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -11,11 +12,13 @@ import java.util.List;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-@ToString
+@ToString(exclude = {"department", "enrollments"})
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idStudent;
+
     private String firstName;
     private String lastName;
     private String email;
@@ -27,5 +30,6 @@ public class Student {
     private Department department;
 
     @OneToMany(mappedBy = "student")
+    @JsonIgnore
     private List<Enrollment> enrollments;
 }
