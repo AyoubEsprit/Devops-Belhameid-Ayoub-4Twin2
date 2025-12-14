@@ -20,12 +20,12 @@
     <properties>
         <java.version>17</java.version>
 
-        <!-- 🔥 PROPRIÉTÉS SONAR IMPORTANTES -->
+        <!--  PROPRIÉTÉS SONAR IMPORTANTES -->
         <sonar.projectKey>student-management</sonar.projectKey>
         <sonar.projectName>student-management</sonar.projectName>
         <sonar.host.url>http://127.0.0.1:9000</sonar.host.url>
 
-        <!-- 🔥 Rapport JaCoCo pour SonarQube -->
+        <!--  Rapport JaCoCo pour SonarQube -->
         <sonar.junit.reportPaths>${project.build.directory}/surefire-reports</sonar.junit.reportPaths>
         <sonar.jacoco.reportPaths>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPaths>
         <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
@@ -90,7 +90,7 @@
                 </configuration>
             </plugin>
 
-            <!-- 🔥 JaCoCo Coverage -->
+            <!--  JaCoCo Coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
@@ -123,7 +123,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- 🔥 Sonar Scanner Plugin -->
+            <!--  Sonar Scanner Plugin -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
