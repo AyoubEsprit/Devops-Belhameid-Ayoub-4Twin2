@@ -19,6 +19,16 @@
 
     <properties>
         <java.version>17</java.version>
+
+        <!-- 🔥 PROPRIÉTÉS SONAR IMPORTANTES -->
+        <sonar.projectKey>student-management</sonar.projectKey>
+        <sonar.projectName>student-management</sonar.projectName>
+        <sonar.host.url>http://127.0.0.1:9000</sonar.host.url>
+
+        <!-- 🔥 Rapport JaCoCo pour SonarQube -->
+        <sonar.junit.reportPaths>${project.build.directory}/surefire-reports</sonar.junit.reportPaths>
+        <sonar.jacoco.reportPaths>${project.build.directory}/jacoco.exec</sonar.jacoco.reportPaths>
+        <sonar.coverage.jacoco.xmlReportPaths>${project.build.directory}/site/jacoco/jacoco.xml</sonar.coverage.jacoco.xmlReportPaths>
     </properties>
 
     <dependencies>
@@ -80,21 +90,19 @@
                 </configuration>
             </plugin>
 
-            <!-- JaCoCo -->
+            <!-- 🔥 JaCoCo Coverage -->
             <plugin>
                 <groupId>org.jacoco</groupId>
                 <artifactId>jacoco-maven-plugin</artifactId>
                 <version>0.8.10</version>
 
                 <executions>
-                    <!-- Active Jacoco pendant les tests -->
                     <execution>
                         <goals>
                             <goal>prepare-agent</goal>
                         </goals>
                     </execution>
 
-                    <!-- Génère rapport XML -->
                     <execution>
                         <id>report</id>
                         <phase>verify</phase>
@@ -115,7 +123,7 @@
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
 
-            <!-- Sonar Scanner -->
+            <!-- 🔥 Sonar Scanner Plugin -->
             <plugin>
                 <groupId>org.sonarsource.scanner.maven</groupId>
                 <artifactId>sonar-maven-plugin</artifactId>
