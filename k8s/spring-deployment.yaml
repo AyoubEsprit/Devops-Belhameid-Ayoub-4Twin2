@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: spring-app
-          image: belhameid/springdevopsapp:1.0
+          image: belhameid/springdevopsapp:1.2
           ports:
             - containerPort: 8089
           env:
